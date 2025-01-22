@@ -1,13 +1,14 @@
 /* App.css */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
 .app {
-  display: flex;
+  display:flex;
   flex-direction: column;
   height: 100vh;
+}
+
+.blog-img{
+  border-radius: 25px;
+  height:min-content;
+  width:100%;
 }
 
 .navbar {
