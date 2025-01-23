@@ -22,8 +22,7 @@ const blogSchema = mongoose.Schema(
             required: true
         },
         section:{
-            type:String,
-            required: true
+            type:String
         }
     },
     {

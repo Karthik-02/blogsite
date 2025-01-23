@@ -1,20 +1,32 @@
 /* App.css */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
 .app {
-  display: flex;
+ 
+  display:flex;
   flex-direction: column;
   height: 100vh;
 }
 
+.blog-img{
+  border-radius: 25px;
+  height:min-content;
+  width:100%;
+}
+
 .navbar {
-  background-color: #333;
+  background: linear-gradient(135deg,rgb(36, 124, 240) 70%,rgb(56, 63, 172) 10%);
+  background-color: #eee;
   color: white;
+  height: 40px;
   padding: 10px 20px;
+  border: 1px solid #000000;
   text-align: center;
+  border-radius: 10px;
+}
+
+.logo{
+  height:30px;
+  padding-left: 10px;
+  border-radius: 20px;
 }
 
 .main {
@@ -31,20 +43,63 @@ body {
 }
 
 .blog-item {
+  background: linear-gradient(135deg,rgb(36, 124, 240) 10%,rgb(56, 63, 172) 90%);
+  font-family: monospace;
   padding: 10px;
+  color: #eee;
   margin-bottom: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #000000;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.1s;
 }
 
 .blog-item:hover {
-  background: #eee;
+  background: #000000;
 }
 
 .content {
+  
   flex: 1;
   padding: 20px;
   overflow-y: auto;
+  padding-bottom: 80px;
 }
+
+.blog-content{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.update-button {
+  background:rgb(11, 56, 180);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right:20px;
+  margin-bottom: 20px;
+}
+
+.delete-button {
+  background:rgb(201, 14, 14);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right:20px;
+  margin-bottom: 20px;
+}
+
+
