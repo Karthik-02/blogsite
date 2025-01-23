@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
+import Modal from 'react-modal';
+
 
 const API_BASE_URL = 'http://localhost:5555/blogs';
 
@@ -73,10 +75,14 @@ const App = () => {
     fetchBlogs();
   }, []);
 
+   
+   
+
   return (
     <div className="app">
       <nav className="navbar">
-        <h3>Blog Viewer</h3>
+        <img class="logo" src='https://www.justoglobal.com/news/public/images/Logo.png'></img>
+        <img class="logo" src='https://logodix.com/logo/1597047.gif'></img>
       </nav>
       <div className="main">
         <div className="sidebar">
@@ -95,49 +101,97 @@ const App = () => {
           {selectedBlog ? (
             <>
               <img className="blog-img" src={selectedBlog.img} alt="Blog" />
-              <button onClick={() => handleUpdateBlog(selectedBlog._id)}>Update Blog</button>
-              <button onClick={() => handleDeleteBlog(selectedBlog._id)}>Delete Blog</button>
+              <button className="update-button" onClick={() => handleUpdateBlog(selectedBlog._id)}>Update Blog</button>
+              <button className="delete-button" onClick={() => handleDeleteBlog(selectedBlog._id)}>Delete Blog</button>
               <h2>{selectedBlog.title}</h2>
               <p><strong>By:</strong> {selectedBlog.author}</p>
               <h3>{selectedBlog.subheading}</h3>
-              <p>{selectedBlog.content}</p>
+              <p class="blog-content">{selectedBlog.content}</p>
             </>
           ) : (
-            <p>Select a blog to view its details.</p>
+            <p>"Select a blog to view its details."</p>
           )}
+          
+          
           <div className="create-blog">
-            <h3>Create New Blog</h3>
-            <input
-              type="text"
-              placeholder="Title"
-              value={newBlog.title}
-              onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })}
-            />
-            <input
-              type="text"
-              placeholder="Subheading"
-              value={newBlog.subheading}
-              onChange={(e) => setNewBlog({ ...newBlog, subheading: e.target.value })}
-            />
-            <input
-              type="text"
-              placeholder="Author"
-              value={newBlog.author}
-              onChange={(e) => setNewBlog({ ...newBlog, author: e.target.value })}
-            />
-            <textarea
-              placeholder="Content"
-              value={newBlog.content}
-              onChange={(e) => setNewBlog({ ...newBlog, content: e.target.value })}
-            ></textarea>
-            <input
-              type="text"
-              placeholder="Image URL"
-              value={newBlog.img}
-              onChange={(e) => setNewBlog({ ...newBlog, img: e.target.value })}
-            />
-            <button onClick={handleCreateBlog}>Create Blog</button>
-          </div>
+  <input
+    type="text"
+    placeholder="Title"
+    value={newBlog.title}
+    onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })}
+  />
+  <input
+    type="text"
+    placeholder="Subheading"
+    value={newBlog.subheading}
+    onChange={(e) => setNewBlog({ ...newBlog, subheading: e.target.value })}
+  />
+  <input
+    type="text"
+    placeholder="Author"
+    value={newBlog.author}
+    onChange={(e) => setNewBlog({ ...newBlog, author: e.target.value })}
+  />
+  <textarea
+    placeholder="Content"
+    value={newBlog.content}
+    onChange={(e) => setNewBlog({ ...newBlog, content: e.target.value })}
+  ></textarea>
+  <input
+    type="text"
+    placeholder="Image URL"
+    value={newBlog.img}
+    onChange={(e) => setNewBlog({ ...newBlog, img: e.target.value })}
+  />
+  <button onClick={handleCreateBlog}>Create Blog</button>
+
+  <style jsx>{`
+    .create-blog {
+      background: linear-gradient(135deg,rgb(17, 17, 16) 0%,rgb(156, 153, 152) 100%);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 700px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .create-blog input,
+    .create-blog textarea {
+      width: 90%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+      font-size: 16px;
+    }
+    .create-blog textarea {
+      height: 100px;
+      resize: none;
+    }
+    .create-blog input:focus,
+    .create-blog textarea:focus {
+      outline: none;
+      border-color:rgb(221, 218, 214);
+      box-shadow: 0 0 5px rgba(12, 8, 3, 0.8);
+    }
+    .create-blog button {
+      background:rgb(21, 236, 21);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .create-blog button:hover {
+      background:rgb(24, 23, 22);
+    }
+  `}</style>
+</div>
+
+
+
         </div>
       </div>
     </div>
