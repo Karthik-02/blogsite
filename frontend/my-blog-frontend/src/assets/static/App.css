@@ -19,15 +19,18 @@
   );
   background-color: #eee;
   color: white;
-  height: 40px;
+  height: 50px;
   padding: 10px 20px;
   border: 1px solid #000000;
   text-align: center;
   border-radius: 10px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navlinks {
+  display: flex;
   justify-content: center;
   width: 20%;
 }
@@ -39,15 +42,18 @@
   text-underline-offset: 0px;
   margin: 20px;
   padding: 10px;
+  text-decoration: none;
+}
+
+.navlink:hover {
+  text-decoration: underline;
 }
 
 .nav-image {
   background-color: antiquewhite;
   width: 30%;
   border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  margin-left: auto;
+  margin-left: 70%;
 }
 
 .search {
@@ -86,7 +92,7 @@
     rgb(36, 124, 240) 10%,
     rgb(56, 63, 172) 90%
   );
-  font-family: monospace;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   padding: 10px;
   color: #eee;
   margin-bottom: 10px;
@@ -104,14 +110,14 @@
 
 .blog-item-content {
   display: flex;
+  align-items: center;
 }
 
 .blogitem-img {
-  display: flex;
   margin-right: 10px;
-  height: 60px;
-  width: 60px;
-  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
 }
 
 .content {
@@ -138,6 +144,10 @@
   margin: 20px;
 }
 
+.update-button:hover {
+  background: rgb(8, 45, 150);
+}
+
 .delete-button {
   background: rgb(201, 14, 14);
   color: white;
@@ -151,17 +161,8 @@
   margin: 20px;
 }
 
-.logout {
-  background: rgb(5, 0, 0);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  display: flex;
+.delete-button:hover {
+  background: rgb(150, 10, 10);
 }
 
 .create-blog {
@@ -266,8 +267,7 @@
   }
 
   .update-button,
-  .delete-button,
-  .logout {
+  .delete-button {
     padding: 5px 10px;
     font-size: 14px;
   }
@@ -286,13 +286,5 @@
   .blog-item {
     display: inline-block;
     margin-right: 10px;
-    overflow: hidden;
-    width: min-content;
-    align-items: center;
-    font-size: smaller;
-  }
-
-  .blogitem-img {
-    display: hidden;
   }
 }
